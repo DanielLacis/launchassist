@@ -1,4 +1,4 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Create, Edit, and Display Projects 
 
 ## Rails
 ### Models

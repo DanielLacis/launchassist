@@ -23,4 +23,4 @@ username        | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
 
-TODO: comments, questions, replies
+TODO: comments, questions, replies, image storage, backers, and more
