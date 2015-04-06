@@ -73,7 +73,7 @@ typed in.  Typeahead is desired but not mandatory.
 
 [Details][phase-six]
 
-### Bonus Features (TBD)
+### Bonus Features ()
 - [ ] Pagination/infinite scroll
 - [ ] Multiple sessions/session management (computer, phone, tablet seperate
   sessions)
