@@ -31,7 +31,7 @@ Launch Assist is a clone of Kickstarter built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Category and Project Creation (~1 day)
+## Phase 1: User Authentication, Category and Project Creation (~1 day)
 User authentication will be implemented with email, password digest, and session
 tokens.  Backend will also be created for categories and projects in Rails.
 Since the projects will be displayed by category by default, both of these need
