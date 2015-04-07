@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require composite_view
 //= require launch_assist
 //= require_tree ../templates
 //= require_tree ./models
