@@ -1,0 +1,35 @@
+<% if @user.persisted? %>
+  <% verb = "Update" %>
+  <% url = user_url(@user) %>
+  <% button_val = "Update #{@user.username}" %>
+<% else %>
+  <% verb = "Create" %>
+  <% url = users_url %>
+  <% button_val = "Create account" %>
+<% end %>
+<form action="<%= url %>" method="POST">
+  <%= csrf_input %>
+  <% if @user.persisted? %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <label for="username_field">Username:</label>
+  <input type="text" id="username_field" name="user[username]" value=<%= @user.username %>>
+  <br>
+  <label for="email_field">Email:</label>
+  <input type="text" id="email_field" name="user[email]" value=<%= @user.email %>>
+  <br>
+  <% unless @user.persisted? %>
+    <label for="password_field">Password:</label>
+    <input type="password" id="password_field" name="user[password]">
+    <br>
+    <label for="passwordConfirm_field">Confirm Password:</label>
+    <input type="password" id ="passwordConfirm_field" name="user[passwordConfirm]">
+    <br>
+  <% end %>
+  <input type="submit" value="<%= button_val %>">
+</form>
+<% if @user.persisted? %>
+  <%= link_to @user.username, user_url(@user), method: :get %>
+<% else %>
+  <%= link_to "Log In Page", new_session_url, method: :get %>
+<% end %>
