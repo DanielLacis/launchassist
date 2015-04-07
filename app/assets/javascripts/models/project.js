@@ -1,3 +1,3 @@
-LaunchAssist.Models.Project = Backbone.Model.Extend({
+LaunchAssist.Models.Project = Backbone.Model.extend({
   urlRoot: 'api/projects'
 });
