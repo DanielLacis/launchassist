@@ -1,8 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   validates :username, :password_digest, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
   validates :passwordConfirm, length: { minimum: 6, allow_nil: true}
   validate :passwords
+
+  has_many :projects
 
   after_initialize :ensure_session_token
   attr_reader :password, :passwordConfirm

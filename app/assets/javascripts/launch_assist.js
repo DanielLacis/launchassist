@@ -4,7 +4,9 @@ window.LaunchAssist = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $('div#main');
+    new LaunchAssist.Routers.Router({$rootEl: $rootEl});
+    Backbone.history.start();
   }
 };
 
