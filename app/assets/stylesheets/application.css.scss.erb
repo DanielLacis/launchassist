@@ -14,10 +14,19 @@
  *= require_self
  */
 //= depend_on_asset "background-main.jpg"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
+  padding-top: 70px;
   width: 100%;
-  background-image: url(<%= asset_path('background-main.jpg') %>);
+  background-image: url(<%= asset_path('green-nebula.jpg') %>);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.auth-control {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  border: 1px solid white;
 }

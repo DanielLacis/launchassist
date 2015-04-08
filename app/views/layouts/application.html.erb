@@ -8,6 +8,7 @@
   <%= favicon_link_tag 'favicon.png' %>
 </head>
 <body>
+<%= render partial: 'layouts/header' %>
 <%= render partial: 'layouts/errors' %>
 <% if logged_in? %>
   <%= button_to "Log out", session_url, method: :delete %>
