@@ -2,7 +2,9 @@
 <div class="container">
   <div class="col-md-3"></div>
     <form action="<%= session_url %>" class="form-horizontal col-md-6 auth-control" method="POST">
-    <div class="form-group"><%= csrf_input %></div>
+    <div class="form-group">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    </div>
     <div class="form-group" style="margin-top: 15px">
       <label for="email_field" class="col-md-2 control-label">Email: </label>
       <div class="col-md-10">
