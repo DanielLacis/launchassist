@@ -1,6 +1,6 @@
 LaunchAssist.Collections.Categories = Backbone.Collection.extend({
   url: 'api/categories',
-  model: LaunchAssist.Models.Categories,
+  model: LaunchAssist.Models.Category,
 
   getOrFetch: function(id) {
     var category = this.get(id);

@@ -8,13 +8,25 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.collection = new LaunchAssist.Collections.Categories();
+    this.currentUser = new LaunchAssist.Models.CurrentUser();
     this.collection.fetch();
+    this.currentUser.fetch();
   },
 
   categoriesIndex: function() {
-    alert('danger');
+    this.currentUser.fetch();
     var newView = new LaunchAssist.Views.CategoriesIndex({collection: this.collection});
     this._swapView(newView);
+    // var view;
+    // debugger
+    // this.collection.fetch({
+    //   success: function() {
+    //     this.collection.each(function(category) {
+    //       view = new LaunchAssist.Views.CategoriesIndexItem({model: category});
+    //       newView.addSubview('.categories', view);
+    //     });
+    //   }.bind(this)
+    // });
   },
 
   categoryShow: function() {
