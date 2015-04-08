@@ -1,10 +1,3 @@
-class Api::ProjectsController < ApiController
+class Api::ProjectsController < ApplicationController
   before_action :require_current_user!
-  def show
-
-  end
-
-  def index
-
-  end
 end

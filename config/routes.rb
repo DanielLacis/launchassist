@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api, defaults: {format: :json} do
-
+    resources :categories
   end
 end
