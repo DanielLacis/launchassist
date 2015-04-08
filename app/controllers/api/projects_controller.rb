@@ -1,11 +1,10 @@
-module Api
-  class ProjectsController < ApiController
-    def show
+class Api::ProjectsController < ApiController
+  before_action :require_current_user!
+  def show
 
-    end
+  end
 
-    def index
+  def index
 
-    end
   end
 end

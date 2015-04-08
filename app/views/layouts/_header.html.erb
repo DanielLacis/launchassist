@@ -40,7 +40,7 @@
       </form> -->
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="<%= session_url %>" data-method="delete">Log Out</a></li>
         <% else %>
           <li><a href="<%= new_user_url %>">Sign Up</a></li>
           <li><a href="<%= new_session_url %>">Log In</a></li>

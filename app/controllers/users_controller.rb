@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_current_user!, except: [:create, :new]
 
-  def index
+  def index # do this with javascript
     render :index
   end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     render :new
   end
 
-  def edit
+  def edit # do this with javascript
     @user = User.find(params[:id])
     render :edit
   end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def show # do this with javascript
     @user = User.find(params[:id])
     render :show
   end
