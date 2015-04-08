@@ -1,7 +1,5 @@
-class Api::CurrentUsersController < ApplicationController
-  before_action :require_current_user!
-
+class Api::UsersController < ApplicationController
   def show
-    logged_in? ? (render 'current_user') : (render json: nil)
+    logged_in? ? (render :show) : (render json: nil)
   end
 end
