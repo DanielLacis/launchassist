@@ -1,0 +1,5 @@
+<h1><%= category.escape('title') %></h1>
+<% category.projects().each( function(project) { %>
+  <% console.log('hello') %>
+  <h3><%= project.escape('title') %></h3>
+<% }) %>

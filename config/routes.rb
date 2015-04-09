@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api, defaults: {format: :json} do
-    resources :categories
+    resources :categories, only: []
+    resources :categories, only: [:show, :index] do
+      resources :projects, only: [:index]
+    end
+    resources :projects, only: [:show]
+
     resources :users, only: [:show]
   end
 end

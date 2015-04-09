@@ -3,3 +3,5 @@ setup image hosting: cloudinary or amazonS3
 replace project placeholders with good seeds
 choose better images for categories
 smaller category images
+add dropdown to pick category
+direct navigation to localhost:3000/# does not display images

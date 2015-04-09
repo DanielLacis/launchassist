@@ -1,7 +1,7 @@
 LaunchAssist.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'categoriesIndex', // shows the categories
-    'categories/:id': 'projectIndex', // shows the projects for a given category
+    'categories/:id': 'categoryShow', // shows the projects for a given category
     'projects/:id': 'projectShow'  // shows the actual project
   },
 
@@ -14,23 +14,15 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   },
 
   categoriesIndex: function() {
-    this.currentUser.fetch();
+    // this.currentUser.fetch();
     var newView = new LaunchAssist.Views.CategoriesIndex({collection: this.collection});
     this._swapView(newView);
-    // var view;
-    // debugger
-    // this.collection.fetch({
-    //   success: function() {
-    //     this.collection.each(function(category) {
-    //       view = new LaunchAssist.Views.CategoriesIndexItem({model: category});
-    //       newView.addSubview('.categories', view);
-    //     });
-    //   }.bind(this)
-    // });
   },
 
-  categoryShow: function() {
-
+  categoryShow: function(id) { //:category_id
+    var category = this.collection.getOrFetch(id);
+    var newView = new LaunchAssist.Views.CategoryShow({model: category});
+    this._swapView(newView);
   },
 
   projectShow: function() {

@@ -8,8 +8,6 @@ class Api::CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    if @category
-      render :show
-    end
+    render :show
   end
 end
