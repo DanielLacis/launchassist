@@ -1,6 +1,6 @@
 LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
   template: JST['categories/category_project_item'],
-  className: 'project',
+  className: 'project container',
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);

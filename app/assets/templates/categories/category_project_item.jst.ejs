@@ -1,1 +1,15 @@
-<h3 class="project-index-title"><%= project.escape('title') %></h3>
+<div class="project-image col-md-4">
+  <img class="show-image" src="http://<%= project.escape('image_url') %>">
+</div>
+<div class="project-info col-md-5">
+  <h1 class="project-index-title"><%= project.escape('title') %></h1>
+  <p class="body-text-alt"><%= project.escape('description') %></p>
+</div>
+<div class="project-stats col-md-3">
+  <h3 class="stat-title">Backers here</h3>
+  <p class="stat-text">Relevant text here</p>
+  <h3 class="stat-title">Backers here</h3>
+  <p class="stat-text">Relevant text here</p>
+  <h3 class="stat-title">Backers here</h3>
+  <p class="stat-text">Relevant text here</p>
+</div>

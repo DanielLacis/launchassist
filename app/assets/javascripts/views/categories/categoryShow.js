@@ -1,8 +1,13 @@
 LaunchAssist.Views.CategoryShow = Backbone.CompositeView.extend({
   template: JST['categories/category_show'],
+  className: 'category-main container',
+
   initialize: function() {
     this.model.projects().each(function(project) {
-      this.addToProjects(project);
+      if (project.isNew()) {
+      } else {
+        this.addToProjects(project);
+      }
     }.bind(this));
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.projects(), 'sync', this.render);

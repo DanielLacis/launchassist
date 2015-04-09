@@ -1,2 +1,10 @@
-<h1 class="page-title"><%= category.escape('title') %></h1>
+<div class="container category-show">
+  <div class="category-show-info col-md-6">
+    <h1 class="page-title"><%= category.escape('title') %></h1>
+    <p class="body-text"><%= category.escape('description') %></p>
+  </div>
+  <div class="category-show-image col-md-6">
+    <img class="show-image" src="<%= category.escape('image_url') %>">
+  </div>
+</div>
 <div class="projects"></div>
