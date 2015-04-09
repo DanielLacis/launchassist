@@ -3,8 +3,7 @@ LaunchAssist.Views.CategoriesIndex = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.collection.each(function(model) {
-      var subview = new LaunchAssist.Views.CategoriesIndexItem({model: model});
-      this.addSubview('div.categories', subview);
+      this.addToView(model);
     }.bind(this));
     this.listenTo(this.collection, 'add', this.addToView);
     this.listenTo(this.collection, 'sync', this.render);
