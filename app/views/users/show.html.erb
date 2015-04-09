@@ -1,4 +1,4 @@
-<h1><%= @user.username %></h1>
+<h1 class="page-title"><%= @user.username %></h1>
 <h3>Username: <%= @user.username %></h3>
 <h3>Email: <%= @user.email %></h3>
 <% if !current_user.nil? && @user.id == current_user.id %>
