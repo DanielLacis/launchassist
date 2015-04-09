@@ -3,6 +3,7 @@ LaunchAssist.Views.CategoriesIndexItem = Backbone.View.extend({
   className: 'category',
 
   events: {
+    'mouseover': 'changeCursor',
     'click': 'linkToCategory'
   },
 
@@ -20,5 +21,9 @@ LaunchAssist.Views.CategoriesIndexItem = Backbone.View.extend({
   linkToCategory: function(event) {
     event.preventDefault();
     Backbone.history.navigate('#categories/' + this.model.get('id'), {trigger: true});
+  },
+
+  changeCursor: function(event) {
+    $(event.currentTarget).css('cursor', 'pointer');
   }
 });

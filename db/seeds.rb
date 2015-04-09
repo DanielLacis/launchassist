@@ -72,6 +72,6 @@ Project.create(title: "Colonize the Moon",
                user_id: 1, category_id: 4)
 
 Project.create(title: "Colonize Space",
-               description: "Think Death Star but no laser",
+               description: "Think the Death Star without a laser",
                image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 4)

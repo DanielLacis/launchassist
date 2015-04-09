@@ -1,8 +1,8 @@
-render errors without shifting anything on the page
+render errors without shifting anything on the page - luxury
 setup image hosting: cloudinary or amazonS3
-replace project placeholders with good seeds
-choose better images for categories
+replace project placeholder images with good seeds
 smaller category images
 add dropdown to pick category
-direct navigation to localhost:3000/# does not display images
-mouseover cursor change for category divs
+mouseover cursor change for category divs in category index
+add hover effect to brand in navbar
+
