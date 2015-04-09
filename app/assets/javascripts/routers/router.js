@@ -14,13 +14,14 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   },
 
   categoriesIndex: function() {
-    // this.currentUser.fetch();
+    this.collection.fetch();
     var newView = new LaunchAssist.Views.CategoriesIndex({collection: this.collection});
     this._swapView(newView);
   },
 
   categoryShow: function(id) { //:category_id
     var category = this.collection.getOrFetch(id);
+    category.projects().fetch();
     var newView = new LaunchAssist.Views.CategoryShow({model: category});
     this._swapView(newView);
   },

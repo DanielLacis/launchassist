@@ -2,8 +2,11 @@ LaunchAssist.Models.Category = Backbone.Model.extend({
   urlRoot: 'api/categories',
 
   projects: function() {
-    this._projects = this._projects || new LaunchAssist.Collections.Projects({categoryId: this.get('id')});
-    this._projects.fetch();
+    if (this._projects) {
+      return this._projects;
+    } else {
+      this._projects = new LaunchAssist.Collections.Projects({categoryId: this.get('id')});
+    }
     return this._projects;
   }
 });
