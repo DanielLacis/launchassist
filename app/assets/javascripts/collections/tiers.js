@@ -2,7 +2,7 @@ LaunchAssist.Collections.Tiers = Backbone.Collection.extend({
   url: 'api/projects/' + this.projectId + '/tiers', // unnecessary due to initialize?
   model: LaunchAssist.Models.Tier,
 
-  initialize: function(options) {
+  initialize: function(models, options) {
     this.projectId = options.projectId;
     this.url = 'api/projects/' + this.projectId + '/tiers';
   },

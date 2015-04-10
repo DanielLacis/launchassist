@@ -29,7 +29,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   projectShow: function(id) {
     this.project = new LaunchAssist.Models.Project({id: id});
     this.project.fetch();
-    this.project.teirs().fetch();
+    this.project.tiers().fetch();
     var newView = new LaunchAssist.Views.ProjectShow({model: this.project, collection: this.project.tiers()});
     this._swapView(newView);
   },

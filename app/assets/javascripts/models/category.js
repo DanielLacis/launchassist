@@ -5,7 +5,7 @@ LaunchAssist.Models.Category = Backbone.Model.extend({
     if (this._projects) {
       return this._projects;
     } else {
-      this._projects = new LaunchAssist.Collections.Projects({categoryId: this.get('id')});
+      this._projects = new LaunchAssist.Collections.Projects([], {categoryId: this.get('id')});
     }
     return this._projects;
   }

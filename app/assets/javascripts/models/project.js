@@ -5,7 +5,7 @@ LaunchAssist.Models.Project = Backbone.Model.extend({
     if (this._tiers) {
       return this._tiers;
     } else {
-      this._tiers = new LaunchAssist.Collections.Tiers({projectId: this.get('id')});
+      this._tiers = new LaunchAssist.Collections.Tiers([], {projectId: this.get('id')});
     }
     return this._tiers;
   }

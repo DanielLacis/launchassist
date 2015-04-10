@@ -9,7 +9,7 @@
 
 class Pledge < ActiveRecord::Base
   validates :user_id, presence: true
-  validates :project_id, presence: true
+  validates :tier_id, presence: true
   validate :one_pledge_per_user_per_project
   belongs_to :tier
   belongs_to :user
