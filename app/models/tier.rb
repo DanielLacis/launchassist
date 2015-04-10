@@ -12,7 +12,7 @@
 #
 
 class Tier < ActiveRecord::Base
-  validates :project_id, :rewards, :end_date, :amount, presence: true
+  validates :project_id, :rewards, :delivery_date, :amount, presence: true
   validates :amount, uniqueness: {scope: :project_id}
 
   has_many :pledges

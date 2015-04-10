@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150409224350) do
     t.string   "title",       null: false
     t.text     "description", null: false
     t.string   "image_url"
+    t.datetime "end_date",    null: false
     t.integer  "user_id",     null: false
     t.integer  "category_id", null: false
     t.datetime "created_at"
@@ -47,10 +48,10 @@ ActiveRecord::Schema.define(version: 20150409224350) do
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "tiers", force: :cascade do |t|
-    t.integer  "project_id", null: false
-    t.text     "rewards",    null: false
-    t.datetime "end_date",   null: false
-    t.integer  "amount",     null: false
+    t.integer  "project_id",    null: false
+    t.text     "rewards",       null: false
+    t.datetime "delivery_date", null: false
+    t.integer  "amount",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

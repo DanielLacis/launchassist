@@ -3,7 +3,7 @@ class CreateTiers < ActiveRecord::Migration
     create_table :tiers do |t|
       t.integer :project_id, null: false
       t.text :rewards, null: false
-      t.datetime :end_date, null: false
+      t.datetime :delivery_date, null: false
       t.integer :amount, null: false
 
       t.timestamps

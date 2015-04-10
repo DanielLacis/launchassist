@@ -26,8 +26,12 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this._swapView(newView);
   },
 
-  projectShow: function() {
-
+  projectShow: function(id) {
+    this.project = new LaunchAssist.Models.Project({id: id});
+    this.project.fetch();
+    this.project.teirs().fetch();
+    var newView = new LaunchAssist.Views.ProjectShow({model: this.project, collection: this.project.tiers()});
+    this._swapView(newView);
   },
 
   userShow: function() {
@@ -35,9 +39,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function(view) {
-    if (this._currentView) {
-      this._currentView.remove();
-    }
+    this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(this._currentView.render().$el);
   }
