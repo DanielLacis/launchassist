@@ -9,10 +9,12 @@ Launch Assist is a clone of Kickstarter built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create projects 
-- [ ] Describe project
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Create projects 
+- [x] Describe project
+- [x] view projects by category
+- [ ] view project
 - [ ] Set funding goal
 - [ ] Set fundraising duration
 - [ ] Comment on projects
@@ -20,7 +22,7 @@ Launch Assist is a clone of Kickstarter built on Rails and Backbone. Users can:
 - [ ] View project backers
 - [ ] Search for project by category
 - [ ] Search for project by name
-- [ ] Have multiple project categories
+- [x] Have multiple project categories
 
 ## Design Docs
 * [View Wireframes][views]
