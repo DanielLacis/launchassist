@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407202658) do
+ActiveRecord::Schema.define(version: 20150409224350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20150407202658) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pledges", force: :cascade do |t|
+    t.integer "tier_id"
+    t.integer "user_id"
+  end
+
+  add_index "pledges", ["tier_id", "user_id"], name: "index_pledges_on_tier_id_and_user_id", unique: true, using: :btree
+  add_index "pledges", ["tier_id"], name: "index_pledges_on_tier_id", using: :btree
+  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "title",       null: false
@@ -36,6 +45,17 @@ ActiveRecord::Schema.define(version: 20150407202658) do
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "tiers", force: :cascade do |t|
+    t.integer  "project_id", null: false
+    t.text     "rewards",    null: false
+    t.datetime "end_date",   null: false
+    t.integer  "amount",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tiers", ["project_id"], name: "index_tiers_on_project_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

@@ -16,4 +16,7 @@ class Project < ActiveRecord::Base
   validates :title, :description, :user_id, :category_id, presence: true
   belongs_to :user
   belongs_to :category
+  has_many :tiers
+  has_many :pledges, through: :tiers, source: :pledges
+  has_many :backers, through: :pledges, source: :user # may not want this, would want to display backers by tier, can get from tier then
 end

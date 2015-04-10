@@ -16,8 +16,11 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
   validates :passwordConfirm, length: { minimum: 6, allow_nil: true}
   validate :passwords
-
+  
   has_many :projects
+  has_many :pledges
+  has_many :backed_tiers, through: :pledges, source: :tier
+  has_many :backed_projects, through: :backed_tiers, source: :project
 
   after_initialize :ensure_session_token
   attr_reader :password, :passwordConfirm
