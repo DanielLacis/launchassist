@@ -6,6 +6,13 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.png' %>
+  <% if current_user %>
+    <script>
+      $(document).ready(function(){
+        LaunchAssist.initialize();
+      });
+    </script>
+  <% end %>
 </head>
 <body>
 

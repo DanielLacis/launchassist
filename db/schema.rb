@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 20150409224350) do
   add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description", null: false
+    t.string   "title",                 null: false
+    t.text     "description",           null: false
     t.string   "image_url"
-    t.datetime "end_date",    null: false
-    t.integer  "user_id",     null: false
-    t.integer  "category_id", null: false
+    t.datetime "end_date",              null: false
+    t.integer  "goal",        limit: 8, null: false
+    t.integer  "user_id",               null: false
+    t.integer  "category_id",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

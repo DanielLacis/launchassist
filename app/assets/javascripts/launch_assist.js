@@ -9,7 +9,3 @@ window.LaunchAssist = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  LaunchAssist.initialize();
-});

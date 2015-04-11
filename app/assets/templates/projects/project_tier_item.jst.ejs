@@ -1,1 +1,4 @@
-<h3><%= tier.escape('amount') %></h3>
+<h3>Pledge $<%= tier.escape('amount') %> or more</h3>
+<p> <%= tier.escape('numPledges') %> pledges</p>
+<p> <%= tier.escape('description') %></p>
+<p> Estimated delivery: <%= LaunchAssist.Time.prototype.monthYear(tier.escape('delivery_date')) %></p>

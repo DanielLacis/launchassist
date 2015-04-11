@@ -6,12 +6,10 @@
   <p class="body-text-alt"><%= project.escape('description') %></p>
 </div>
 <div class="project-stats col-md-3">
-  <h3 class="stat-title">Backers here</h3>
-  <p class="stat-text">Relevant text here</p>
-  <h3 class="stat-title">Backers here</h3>
-  <p class="stat-text">Relevant text here</p>
-  <h3 class="stat-title">Backers here</h3>
-  <p class="stat-text">Relevant text here</p>
-  <h3 class="stat-title">Backers here</h3>
-  <p class="stat-text">Relevant text here</p>
+  <h3 class="stat-title">Backers</h3>
+  <p class="stat-text"><%= project.escape('numPledges') %> people backing this project</p>
+  <h3 class="stat-title">Progress</h3>
+  <p class="stat-text"><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100) %>% of goal pledged</p>
+  <h3 class="stat-title">Timeframe</h3>
+  <p class="stat-text">Project ends in <%= project.escape('time_remaining') %></p>
 </div>

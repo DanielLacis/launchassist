@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :description, null: false
       t.string :image_url
       t.datetime :end_date, null: false
+      t.integer :goal, limit: 5, null: false
       t.integer :user_id, null: false
       t.integer :category_id, null: false
 
