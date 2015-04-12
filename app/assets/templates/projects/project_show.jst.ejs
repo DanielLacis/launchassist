@@ -1,20 +1,21 @@
-
-  <div class="project-show-item col-md-9">
-    <div class="project-show-img col-md-4">
-      <img src="http://<%= project.get('image_url') %>" style="width: 100%">
-    </div>
-    <div class="project-show-main col-md-5">
+<div class="project-show-item col-md-9">
+  <div class="project-show-img col-md-4">
+    <img src="http://<%= project.get('image_url') %>" style="width: 100%">
+  </div>
+  <div class="project-show-main col-md-8">
+    <div class="project-show-primary col-md-8">
       <h1><%= project.escape('title') %></h1>
       <p><%= project.escape('description') %></p>
     </div>
-    <div class="project-show-stats col-md-3">
+    <div class="project-show-stats col-md-4">
       <p><%= project.escape('numPledges') %> Backers</p>
-      <p>Pledged: $<%= project.escape('amtPledged') %></p>
-      <p>Goal: $<%= project.escape('goal') %></p>
+      <p>Pledged: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('amtPledged')) %></p>
+      <p>Goal: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %></p>
       <p><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100)%>% of goal</p>
       <p>Duration remaining: <%= project.escape('time_remaining') %></p>
     </div>
   </div>
+</div>
 
-  <div class="project-tiers col-md-3">
-  </div>
+<div class="project-tiers col-md-3">
+</div>

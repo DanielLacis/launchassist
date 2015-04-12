@@ -1,7 +1,7 @@
-LaunchAssist.Time = function() {
+LaunchAssist.Util = function() {
 };
 
-LaunchAssist.Time.prototype.monthYear = function(datetime) {
+LaunchAssist.Util.prototype.monthYear = function(datetime) {
   var MONTHS = {'01': 'January', '02': 'February', '03': 'March', '04': 'April',
   '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September',
   '10': 'October', '11': 'November', '12': 'December'};
@@ -9,4 +9,8 @@ LaunchAssist.Time.prototype.monthYear = function(datetime) {
   var month = datetime.slice(5, 7);
   month = MONTHS[month];
   return month + ", " + year;
+};
+
+LaunchAssist.Util.prototype.numberWithCommas = function (x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };

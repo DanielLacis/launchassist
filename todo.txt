@@ -8,12 +8,11 @@ smaller category images
 
 add dropdown to pick category
 
-mouseover cursor change for category divs in category index
-
 add hover effect to brand in navbar
 
 add table for arbitrary number of images
 
-need to test associations
-
 projects in categoryShow overflow the containing div on the right side
+
+add glyphicons everywhere
+

@@ -1,6 +1,6 @@
 LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   template: JST['projects/project_show'],
-  tagName: 'project-show container',
+  className: 'project-show container',
   initialize: function() {
     this.collection.each( function(tier) {
       this.addTierView(tier);
