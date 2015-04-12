@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'filepicker-rails'
+gem 'figaro'
 gem 'bootstrap-sass'
 gem 'backbone-on-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
