@@ -3,6 +3,8 @@ gem 'filepicker-rails'
 gem 'figaro'
 gem 'bootstrap-sass'
 gem 'backbone-on-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record

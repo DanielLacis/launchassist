@@ -7,10 +7,13 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
+    this.$navEl = options.$navEl;
+    this.$modalEl = options.$modalEl;
     this.collection = new LaunchAssist.Collections.Categories();
     this.currentUser = new LaunchAssist.Models.CurrentUser();
     this.collection.fetch();
     this.currentUser.fetch();
+    this.createNavAndModal();
   },
 
   categoriesIndex: function() {
@@ -42,5 +45,12 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(this._currentView.render().$el);
+  },
+
+  createNavAndModal: function() {
+    this.navView = new LaunchAssist.Views.Nav({collection: this.collection, $navEl: this.$navEl});
+    this.newProjectView = new LaunchAssist.Views.newProjectModal({collection: this.collection, $modalEl: this.$modalEl, model: this.currentUser});
+    this.navView.render();
+    this.newProjectView.render();
   }
 });

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :projects, only: [:index]
     end
 
+    resources :projects, only: [:create, :update, :destroy]
+    
     resources :projects, only: [:show] do
       resources :tiers, only: [:index]
     end

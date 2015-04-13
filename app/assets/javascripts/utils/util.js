@@ -14,3 +14,18 @@ LaunchAssist.Util.prototype.monthYear = function(datetime) {
 LaunchAssist.Util.prototype.numberWithCommas = function (x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
+
+LaunchAssist.Util.prototype.processGoal = function(inputStr) {
+  if (typeof inputStr !== 'string') {
+    return inputStr;
+  }
+  return Math.floor(inputStr.replace(/[$,]/g, ''));
+};
+
+LaunchAssist.Util.prototype.processEndDate = function(inputStr) {
+  if (typeof inputStr !== 'string' || inputStr[2] !== '/') {
+    return inputStr;
+  }
+  return inputStr.slice(6, 10) + '-' + inputStr.slice(0, 2) + '-' +
+         inputStr.slice(3, 5);
+};

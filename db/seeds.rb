@@ -29,62 +29,62 @@ num_categories = Category.all.length
 
 Project.create(title: "Land on the moon",
                description: "Its been awhile",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 1, goal: 10000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Visit Pluto",
                description: "Don't even care that its not a planet.",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 1, goal: 100000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Alpha Centauri Project",
                description: "It will take a bit to get there",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 1, goal: 5000000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Asteroid Mining",
                description: "No one uses them anyways",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 2, goal: 3000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Ice Harvesting",
                description: "Free water.",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 2, goal: 73000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Solar Power",
                description: "Satellites and absurd sun beams",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 2, goal: 1800000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "X-483 Project",
                description: "build a better spaceship",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 3, goal: 1000000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Orion Project",
                description: "Nuclear bomb powered propulsion.  What could go wrong?",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 3, goal: 33000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Solar Sail",
                description: "The green side of things",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 3, goal: 780000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Colonize Mars",
                description: "Start a bio dome",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 4, goal: 243000000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Colonize the Moon",
                description: "Build a city",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 4, goal: 1200000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Colonize Space",
                description: "Think the Death Star without a laser",
-               image_url: ('placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
+               image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 4, goal: 90000000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 num_projects = Project.all.length
