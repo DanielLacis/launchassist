@@ -16,3 +16,4 @@ projects in categoryShow overflow the containing div on the right side
 
 add glyphicons everywhere
 
+filepicker config for S3 https://www.filepicker.com/page/s3/
