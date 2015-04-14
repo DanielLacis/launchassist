@@ -43,7 +43,7 @@ Project.create(title: "Alpha Centauri Project",
                user_id: 1, category_id: 1, goal: 5000000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
 Project.create(title: "Asteroid Mining",
-               description: "No one uses them anyways",
+               description: "No one uses them",
                image_url: ('http://placeimg.com/640/480/tech?' + SecureRandom.hex(3).to_s),
                user_id: 1, category_id: 2, goal: 3000000, end_date: DateTime.new(2015, 5, rand(1..8), rand(8..24)))
 
