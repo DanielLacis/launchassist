@@ -19,5 +19,13 @@ class Project < ActiveRecord::Base
   belongs_to :category
   has_many :tiers
   has_many :pledges, through: :tiers, source: :pledges
-  has_many :backers, through: :pledges, source: :user # may not want this, would want to display backers by tier, can get from tier then
+  has_many :backers, through: :pledges, source: :user
+  has_attached_file :main_photo, styles: {
+    big: "600x600>",
+    small: "50x50#"
+  }
+  validates_attachment_content_type(
+    :main_photo,
+    content_type: /\Aimage\/.*\Z/
+  )
 end

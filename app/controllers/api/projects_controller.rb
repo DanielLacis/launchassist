@@ -25,6 +25,6 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require('project').permit(:category_id, :title, :image_url, :description, :end_date, :goal)
+    params.require('project').permit(:category_id, :title, :image_url, :description, :end_date, :goal, :main_photo)
   end
 end
