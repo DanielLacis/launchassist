@@ -2,17 +2,24 @@
 #
 # Table name: projects
 #
-#  id          :integer          not null, primary key
-#  title       :string           not null
-#  description :text             not null
-#  image_url   :string
-#  user_id     :integer          not null
-#  category_id :integer          not null
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                      :integer          not null, primary key
+#  title                   :string           not null
+#  description             :text             not null
+#  image_url               :string
+#  end_date                :datetime         not null
+#  goal                    :integer          not null
+#  user_id                 :integer          not null
+#  category_id             :integer          not null
+#  created_at              :datetime
+#  updated_at              :datetime
+#  main_photo_file_name    :string
+#  main_photo_content_type :string
+#  main_photo_file_size    :integer
+#  main_photo_updated_at   :datetime
 #
 
 class Project < ActiveRecord::Base
+  # attr_accessor :main_photo_file_name, :main_photo_content_type, :main_photo_file_size, :main_photo_updated_at
   validates :title, :description, :user_id, :category_id, presence: true
   validates :title, uniqueness: {scope: :category_id}
   belongs_to :user

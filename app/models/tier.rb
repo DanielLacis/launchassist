@@ -2,13 +2,13 @@
 #
 # Table name: tiers
 #
-#  id         :integer          not null, primary key
-#  project_id :integer          not null
-#  rewards    :text             not null
-#  end_date   :datetime         not null
-#  amount     :integer          not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id            :integer          not null, primary key
+#  project_id    :integer          not null
+#  rewards       :text             not null
+#  delivery_date :datetime         not null
+#  amount        :integer          not null
+#  created_at    :datetime
+#  updated_at    :datetime
 #
 
 class Tier < ActiveRecord::Base
