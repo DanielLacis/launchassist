@@ -20,7 +20,7 @@ LaunchAssist.Views.newProjectModal = Backbone.View.extend({
   },
 
   newProject: function(event) {
-    debugger
+    
     event.preventDefault();
     var newProjectPOJO = this.$('form#new-project').serializeJSON();
     var newProject = new LaunchAssist.Models.Project();
@@ -34,7 +34,7 @@ LaunchAssist.Views.newProjectModal = Backbone.View.extend({
   },
 
   handleFile: function(event) {
-    debugger
+
     var file = event.currentTarget.files[0];
     var view = this;
     var reader = new FileReader();
