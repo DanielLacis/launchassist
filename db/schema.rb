@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150409224350) do
     t.datetime "updated_at"
   end
 
+  add_index "projects", ["category_id", "title"], name: "index_projects_on_category_id_and_title", unique: true, using: :btree
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 

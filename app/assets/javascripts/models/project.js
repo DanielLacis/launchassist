@@ -19,6 +19,6 @@ LaunchAssist.Models.Project = Backbone.Model.extend({
     if (this.get('goal')) {
       this.set({goal: LaunchAssist.Util.prototype.processGoal(goal)});
     }
-    return this.attributes;
+    return {project: this.attributes};
   }
 });

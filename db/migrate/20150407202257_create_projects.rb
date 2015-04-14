@@ -14,5 +14,6 @@ class CreateProjects < ActiveRecord::Migration
 
     add_index :projects, :user_id
     add_index :projects, :category_id
+    add_index :projects, [:category_id, :title], unique: true
   end
 end

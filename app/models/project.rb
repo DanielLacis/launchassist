@@ -14,6 +14,7 @@
 
 class Project < ActiveRecord::Base
   validates :title, :description, :user_id, :category_id, presence: true
+  validates :title, uniqueness: {scope: :category_id}
   belongs_to :user
   belongs_to :category
   has_many :tiers
