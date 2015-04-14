@@ -14,7 +14,7 @@ LaunchAssist.Views.CategoriesIndexItem = Backbone.View.extend({
   render: function() {
     var content = this.template({category: this.model});
     this.$el.html(content);
-    this.$el.css('background-image', 'url(' + this.model.escape('image_url') + ')');
+    this.$el.css('background-image', 'url(' + this.model.escape('image_url_index') + ')');
     return this;
   },
 

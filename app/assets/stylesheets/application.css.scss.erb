@@ -13,8 +13,6 @@
  *= require_tree .
  *= require_self
  */
-//= depend_on_asset "background-main.jpg"
-//= depend_on_asset "Moon-Earth.jpg"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
@@ -25,7 +23,7 @@ h1, h3 {
 body {
   padding-top: 70px;
   width: 100%;
-  background-image: url(<%= asset_path('Moon-Earth.jpg') %>);
+  background-image: url("https://s3.amazonaws.com/launchassist/category-images/background-main-moon-earth.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -47,9 +45,9 @@ div.category {
   height: 100%;
   float: left;
   background-position: center;
-  background-size: 250% 100%;
   background-repeat: no-repeat;
-  border-radius: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 div.categories {
@@ -90,9 +88,15 @@ p.body-text-alt {
   color: black;
 }
 
-img.show-image {
+img.category-image-index {
   width: 100%;
   height: 100%;
+}
+
+img.category-image-show {
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 h3.stat-title {

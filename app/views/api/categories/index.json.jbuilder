@@ -1,4 +1,3 @@
 json.array! @categories.each do |category|
-  json.extract! category, :id, :title, :description
-  json.image_url asset_path(category.image_url)
+  json.extract! category, :id, :title, :description, :image_url_index, :image_url_show
 end
