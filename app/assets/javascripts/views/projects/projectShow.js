@@ -7,6 +7,9 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     }.bind(this));
     this.listenTo(this.collection, 'add', this.addTierView);
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync', function (model) {
+      Backbone.trigger('setActiveTab', { title: model.get('category').title, url: '#/categories/' + model.get('category_id') });
+    });
   },
 
   render: function() {

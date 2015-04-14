@@ -1,4 +1,7 @@
 <ul class="nav navbar-nav">
   <li><a href="#">Categories</a></li>
   <li><a href="#" data-toggle="modal" data-target="#new-project" >New Project</a></li>
+  <% if (_.escape(title)) { %>
+    <li><a href="<%= _.escape(url) %>"><%= _.escape(title) %></a></li>
+  <% } %>
 </ul>
