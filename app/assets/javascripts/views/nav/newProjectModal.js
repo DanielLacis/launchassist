@@ -1,5 +1,5 @@
 LaunchAssist.Views.newProjectModal = Backbone.View.extend({
-  template: JST['nav/modal'],
+  template: JST['nav/new_project_modal'],
 
   events: {
     'change .main-photo-upload': 'handleFile',
@@ -14,13 +14,13 @@ LaunchAssist.Views.newProjectModal = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({collection: this.collection, model: this.model});
+    var content = this.template({categories: this.collection});
     this.$el.html(content);
     return this;
   },
 
   newProject: function(event) {
-    
+
     event.preventDefault();
     var newProjectPOJO = this.$('form#new-project').serializeJSON();
     var newProject = new LaunchAssist.Models.Project();
@@ -34,7 +34,6 @@ LaunchAssist.Views.newProjectModal = Backbone.View.extend({
   },
 
   handleFile: function(event) {
-
     var file = event.currentTarget.files[0];
     var view = this;
     var reader = new FileReader();

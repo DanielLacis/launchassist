@@ -22,6 +22,17 @@ class Api::ProjectsController < ApplicationController
     render :show
   end
 
+  def update
+    @project = Project.find(params[:id])
+    if current_user.id != @project.user_id
+      render json: 'Can only be edited by project owner', status: 403
+    elsif @project.update(project_params)
+      render json: @project
+    else
+      render json: @project.errors.full_messages, status: :unprocessible_entity
+    end
+  end
+
   private
 
   def project_params

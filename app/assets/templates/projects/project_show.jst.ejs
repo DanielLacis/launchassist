@@ -13,6 +13,9 @@
       <p>Goal: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %></p>
       <p><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100)%>% of goal</p>
       <p>Duration remaining: <%= project.escape('time_remaining') %></p>
+      <% if (currentUser.get('id') === project.get('user_id')) { %>
+        <button type="button" class="btn btn-primary project-edit">Edit Project</button>
+      <% } %>
     </div>
   </div>
 </div>

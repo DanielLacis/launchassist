@@ -3,8 +3,8 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
   className: 'project container',
 
   events: {
-    'click img.show-image': 'sendToProject',
-    'mouseover img.show-image': 'changeCursor'
+    'click div.project-index-image': 'sendToProject',
+    'mouseover div.project-index-image': 'changeCursor'
   },
 
   initialize: function() {

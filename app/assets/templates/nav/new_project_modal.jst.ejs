@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <select class="form-control" name="category_id" id="project-category-id">
-              <% this.collection.each( function(category) { %>
+              <% categories.each( function(category) { %>
                 <option value="<%= category.get('id') %>"><%= category.escape('title') %></option>
               <% }) %>
             </select>
@@ -32,10 +32,11 @@
           </div>
           <div class="form-group">
               <div class='input-group date' id='end-date'>
-                  <input type='text' class="form-control" name="end_date" id="project-end-date" />
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                <label for="project-end-date">Project End Date</label>
+                <input type='text' class="form-control" name="end_date" id="project-end-date" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
               </div>
           </div>
           <script type="text/javascript">
