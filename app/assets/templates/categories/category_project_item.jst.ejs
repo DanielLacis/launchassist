@@ -1,4 +1,4 @@
-<div class="project-index-image col-md-4" style="background: url(<%= project.escape('main_photo') %>) 50% 50% no-repeat">
+<div class="project-index-image col-md-4" style="background: url(<%= project.escape('main_photo_url') %>) 50% 50% no-repeat">
 </div>
 <div class="project-info col-md-5">
   <h1 class="project-index-title"><%= project.escape('title') %></h1>
@@ -11,4 +11,7 @@
   <p class="stat-text"><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100) %>% of goal pledged</p>
   <h3 class="stat-title">Timeframe</h3>
   <p class="stat-text">Project ends in <%= project.escape('time_remaining') %></p>
+  <% if (currentUser.get('id') === project.get('user_id')) { %>
+    <button type="button" class="btn btn-primary project-edit">Edit Project</button>
+  <% } %>
 </div>

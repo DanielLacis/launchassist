@@ -25,7 +25,8 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   categoryShow: function(id) { //:category_id
     var category = this.collection.getOrFetch(id);
     category.projects().fetch();
-    var newView = new LaunchAssist.Views.CategoryShow({model: category});
+    this.currentUser.fetch();
+    var newView = new LaunchAssist.Views.CategoryShow({model: category, currentUser: this.currentUser});
     this._swapView(newView);
   },
 

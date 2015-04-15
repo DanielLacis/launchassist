@@ -1,46 +1,48 @@
 <form id="edit-project">
-  <div class="form-group">
-    <label for="project-edit-title">Project Title</label>
-    <input type="text" name="title" class="form-control" id="project-edit-title" value="<%= project.escape('title') %>">
+  <div class="edit-form container">
+    <div class="form-group">
+      <label for="project-edit-title">Project Title</label>
+      <input type="text" name="title" class="form-control" id="project-edit-title" value="<%= project.escape('title') %>">
+    </div>
+    <div class="form-group">
+      <label for="edit-main-photo">Project Photo</label>
+      <input type="file" id="edit-main-photo" class="main-photo-upload">
+    </div>
+    <div class="form-group">
+      <label for="project-edit-description">Project Description</label>
+      <textarea name="description" id="project-edit-description" class="form-control"><%= project.escape('description') %></textarea>
+    </div>
+    <div class="form-group">
+      <select class="form-control" name="category_id" id="project-edit-category-id">
+        <% var selected %>
+        <% categories.each( function(category) { %>
+          <% selected = '' %>
+          <% if (category.get('id') === project.get('category_id')) { %>
+            <% selected = "selected" %>
+          <% } %>
+          <option value="<%= category.get('id') %>" <%= selected %>><%= category.escape('title') %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="project-edit-goal">Goal:</label>
+      <input type="text" class="form-control" name="goal" id="project-edit-goal" value="<%= '$' + LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %>">
+    </div>
+    <div class="form-group">
+        <div class='input-group date' id='end-date-edit'>
+            <label for="project-edit-end-date">Project End Date</label>
+            <input type='text' class="form-control" name="end_date" id="project-edit-end-date" placeholder="Select a date to change"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+          $('#end-date-edit').datetimepicker({minDate: moment()});
+      });
+    </script>
+    <button type="button" class="btn btn-default" id="project-edit-cancel">Cancel</button>
+    <button type="button" class="btn btn-primary" id="project-edit-submit">Submit Edits</button>
   </div>
-  <div class="form-group">
-    <label for="edit-main-photo">Project Photo</label>
-    <input type="file" id="edit-main-photo" class="main-photo-upload">
-  </div>
-  <div class="form-group">
-    <label for="project-edit-description">Project Description</label>
-    <textarea name="description" id="project-edit-description" class="form-control"><%= project.escape('description') %></textarea>
-  </div>
-  <div class="form-group">
-    <select class="form-control" name="category_id" id="project-edit-category-id">
-      <% var selected %>
-      <% categories.each( function(category) { %>
-        <% selected = '' %>
-        <% if (category.get('id') === project.get('category_id')) { %>
-          <% selected = "selected" %>
-        <% } %>
-        <option value="<%= category.get('id') %>" <%= selected %>><%= category.escape('title') %></option>
-      <% }) %>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="project-edit-goal">Goal:</label>
-    <input type="text" class="form-control" name="goal" id="project-edit-goal" value="<%= '$' + LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %>">
-  </div>
-  <div class="form-group">
-      <div class='input-group date' id='end-date-edit'>
-          <label for="project-edit-end-date">Project End Date</label>
-          <input type='text' class="form-control" name="end_date" id="project-edit-end-date" placeholder="Select a date to change"/>
-          <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-      </div>
-  </div>
-  <script type="text/javascript">
-    $(function () {
-        $('#end-date-edit').datetimepicker({minDate: moment()});
-    });
-  </script>
-  <button type="button" class="btn btn-default" id="project-edit-cancel">Cancel</button>
-  <button type="button" class="btn btn-primary" id="project-edit-submit">Submit Edits</button>
 </form>

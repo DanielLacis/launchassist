@@ -2,7 +2,8 @@ LaunchAssist.Views.CategoryShow = Backbone.CompositeView.extend({
   template: JST['categories/category_show'],
   className: 'category-main container',
 
-  initialize: function() {
+  initialize: function(options) {
+    this.currentUser = options.currentUser;
     this.model.projects().each(function(project) {
       if (project.isNew()) {
       } else {
@@ -21,7 +22,7 @@ LaunchAssist.Views.CategoryShow = Backbone.CompositeView.extend({
   },
 
   addToProjects: function(inputModel) {
-    var subview = new LaunchAssist.Views.CategoryProjectItem({model: inputModel});
+    var subview = new LaunchAssist.Views.CategoryProjectItem({model: inputModel, currentUser: this.currentUser});
     this.addSubview('div.projects', subview);
   }
 });

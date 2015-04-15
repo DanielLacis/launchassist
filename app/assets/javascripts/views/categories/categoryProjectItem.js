@@ -4,15 +4,18 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
 
   events: {
     'click div.project-index-image': 'sendToProject',
-    'mouseover div.project-index-image': 'changeCursor'
+    'mouseover div.project-index-image': 'changeCursor',
+    'click button.project-edit': 'sendToEdit'
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.currentUser = options.currentUser;
+    this.listenTo(this.currentUser, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function() {
-    var content = this.template({project: this.model});
+    var content = this.template({project: this.model, currentUser: this.currentUser});
     this.$el.html(content);
     return this;
   },
@@ -25,5 +28,10 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
   changeCursor: function(event) {
     event.preventDefault();
     $(event.currentTarget).css('cursor', 'pointer');
+  },
+
+  sendToEdit: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate('projects/' + this.model.get('id') + '/edit', {trigger: true});
   }
 });

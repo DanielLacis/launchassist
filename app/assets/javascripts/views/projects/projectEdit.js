@@ -3,7 +3,7 @@ LaunchAssist.Views.ProjectEdit = Backbone.View.extend ({
   className: 'project-edit container',
 
   events: {
-    'click #project-edit-cancel': 'routeToShow',
+    'click #project-edit-cancel': 'routeBack',
     'change .main-photo-upload': 'handleFile',
     'click #project-edit-submit': 'projectEdit'
   },
@@ -46,8 +46,8 @@ LaunchAssist.Views.ProjectEdit = Backbone.View.extend ({
     reader.readAsDataURL(file);
   },
 
-  routeToShow: function(event) {
-    Backbone.history.navigate('projects/' + this.model.get('id'), {trigger: true});
+  routeBack: function(event) {
+    window.history.back();
   }
 
 });
