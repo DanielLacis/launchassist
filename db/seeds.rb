@@ -8,6 +8,7 @@
 # generate random placeholder images
 
 User.create(username: "guest", email: "guest@gmail.com", password: "123456", passwordConfirm: "123456")
+User.create(username: "dan", email: "dan@gmail.com", password: "password", passwordConfirm: "password")
 
 150.times do
   name = Faker::Name.first_name

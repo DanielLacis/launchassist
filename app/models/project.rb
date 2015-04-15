@@ -28,7 +28,8 @@ class Project < ActiveRecord::Base
   has_many :pledges, through: :tiers, source: :pledges
   has_many :backers, through: :pledges, source: :user
   has_attached_file :main_photo, styles: {
-    big: "600x600>",
+    large: "x600>",
+    medium: "x300>",
     small: "50x50#"
   }
   validates_attachment_content_type(

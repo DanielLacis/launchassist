@@ -42,6 +42,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'seed_dump'
 end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
