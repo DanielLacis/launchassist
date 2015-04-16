@@ -4,7 +4,6 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
 
   events: {
     'click div.project-index-image': 'sendToProject',
-    'mouseover div.project-index-image': 'changeCursor',
     'click button.project-edit': 'sendToEdit'
   },
 
@@ -23,11 +22,6 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
   sendToProject: function(event) {
     event.preventDefault();
     Backbone.history.navigate('#projects/' + this.model.get('id'), {trigger: true});
-  },
-
-  changeCursor: function(event) {
-    event.preventDefault();
-    $(event.currentTarget).css('cursor', 'pointer');
   },
 
   sendToEdit: function(event) {

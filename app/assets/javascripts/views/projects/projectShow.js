@@ -16,6 +16,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', function (model) {
       Backbone.trigger('setActiveTab', { title: model.get('category').title, url: '#/categories/' + model.get('category_id') });
     });
+    this.listenTo(Backbone, 'newPledge', this.updateModel);
   },
 
   render: function() {
@@ -33,6 +34,12 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   sendToEdit: function(event) {
     event.preventDefault();
     Backbone.history.navigate('projects/' + this.model.get('id') + '/edit', {trigger: true});
+  },
+
+  updateModel: function() {
+    this.model.fetch();
   }
+
+
 
 });

@@ -28,6 +28,6 @@ class Api::PledgesController < ApplicationController
   private
 
   def pledge_params
-    params.require('pledge').permit(:project_id)
+    params.require('pledge').permit(:tier_id)
   end
 end

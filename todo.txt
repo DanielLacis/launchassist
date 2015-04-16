@@ -1,19 +1,5 @@
-render errors without shifting anything on the page - luxury
-
-setup image hosting: cloudinary or amazonS3
-
-replace project placeholder images with good seeds
-
-smaller category images
-
-add dropdown to pick category
-
-add hover effect to brand in navbar
-
 add table for arbitrary number of images
 
 projects in categoryShow overflow the containing div on the right side
 
-add glyphicons everywhere
-
-filepicker config for S3 https://www.filepicker.com/page/s3/
+category index is fucked
