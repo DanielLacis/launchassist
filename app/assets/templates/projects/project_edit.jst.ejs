@@ -1,5 +1,4 @@
-<form id="edit-project">
-  <div class="edit-form container">
+<form id="edit-project" >
     <div class="form-group">
       <label for="project-edit-title">Project Title</label>
       <input type="text" name="title" class="form-control" id="project-edit-title" value="<%= project.escape('title') %>">
@@ -29,12 +28,12 @@
       <input type="text" class="form-control" name="goal" id="project-edit-goal" value="<%= '$' + LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %>">
     </div>
     <div class="form-group">
+        <label for="project-edit-end-date">Project End Date</label>
         <div class='input-group date' id='end-date-edit'>
-            <label for="project-edit-end-date">Project End Date</label>
-            <input type='text' class="form-control" name="end_date" id="project-edit-end-date" placeholder="Select a date to change"/>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+          <input type='text' class="form-control" name="end_date" id="project-edit-end-date" placeholder="Select a date to change"/>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
     </div>
     <script type="text/javascript">
@@ -44,5 +43,4 @@
     </script>
     <button type="button" class="btn btn-default" id="project-edit-cancel">Cancel</button>
     <button type="button" class="btn btn-primary" id="project-edit-submit">Submit Edits</button>
-  </div>
 </form>
