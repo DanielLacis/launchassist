@@ -7,6 +7,11 @@ LaunchAssist.Views.ProjectTierItem = Backbone.CompositeView.extend({
 
   render: function() {
     var content = this.template({tier: this.model});
+    if (this.model.get('is_pledged')) {
+      this.$el.addClass('project-tier-item-pledged');
+    } else {
+      this.$el.removeClass('project-tier-item-pledged');
+    }
     this.$el.html(content);
     return this;
   }

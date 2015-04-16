@@ -30,7 +30,7 @@ body {
 
 .auth-control {
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid white;
 }
 
@@ -113,7 +113,7 @@ p.stat-text {
 div.project {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 15px;
   border: 1px solid black;
 }
@@ -146,7 +146,7 @@ a.nav-text {
 
 div.project-tier-item {
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 15px;
+  border-radius: 5px;
   margin-bottom: 5px;
   padding-left: 10px;
   border: 1px solid black;
@@ -154,12 +154,25 @@ div.project-tier-item {
 
 div.project-show-item {
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid black;
 }
 
 div.project-show-img {
   margin: 15px 0px;
+  padding: 0;
+}
+
+div.project-show-img:hover:after {
+  border-radius: 5px;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 div.project-show-stats {
@@ -169,7 +182,7 @@ div.project-show-stats {
 div.project-index-image {
   width: 300px;
   height: 300px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 div.project-edit {
@@ -184,4 +197,8 @@ div.edit-form {
 
 form#edit-project {
   margin: 10px 0px;
+}
+
+div.project-tier-item-pledged {
+  background-color: cornflowerblue;
 }

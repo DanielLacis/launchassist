@@ -11,13 +11,16 @@ Rails.application.routes.draw do
     end
 
     resources :projects, only: [:create, :update, :destroy]
-    
+
     resources :projects, only: [:show] do
       resources :tiers, only: [:index]
+      resources :pledges, only: [:index]
     end
 
     resources :tiers, only: [:show]
 
     resources :users, only: [:show]
+    resources :pledges, only: [:show, :create, :destroy]
   end
+
 end
