@@ -51,7 +51,6 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   addPhotoView: function(inputPhoto) {
-    debugger
     var newView = new LaunchAssist.Views.PhotoViewItem({model: inputPhoto, currentUser: this.currentUser});
     this.addSubview('div.project-photos', newView);
   },
@@ -89,7 +88,6 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   updatePhotos: function(options) {
-    debugger
     var photo = options.photo;
     if (photo.get('project_id') == this.model.get('id')) {
       this.photos.add(photo);
