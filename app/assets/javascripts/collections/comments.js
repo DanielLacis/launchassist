@@ -20,5 +20,9 @@ LaunchAssist.Collections.Comments = Backbone.Collection.extend({
       });
     }
     return comment;
+  },
+
+  comparator: function(comment) {
+    return comment.get('created_at');
   }
 });

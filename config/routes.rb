@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show]
     resources :pledges, only: [:show, :create, :destroy]
+    resources :comments, only: [:show, :create, :destroy]
   end
 
 end

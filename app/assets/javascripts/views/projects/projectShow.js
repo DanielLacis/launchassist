@@ -2,7 +2,8 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   template: JST['projects/project_show'],
   className: 'project-show container',
   events: {
-    'click button.project-edit': 'sendToEdit'
+    'click button.project-edit': 'sendToEdit',
+    'click button#new-comment-submit': 'createComment'
   },
 
   initialize: function(options) {
@@ -21,6 +22,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', function (model) {
       Backbone.trigger('setActiveTab', { title: model.get('category').title, url: '#/categories/' + model.get('category_id') });
     });
+    this.listenTo(Backbone, 'deletedComment', this.removeCommentView);
     this.listenTo(Backbone, 'newPledge', this.updateModel);
   },
 
@@ -37,9 +39,14 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   addCommentView: function(inputComment) {
-    
-    var newView = new LaunchAssist.Views.ProjectCommentItem({model: inputComment});
+
+    var newView = new LaunchAssist.Views.ProjectCommentItem({model: inputComment, currentUser: this.currentUser});
     this.addSubview('div.project-comments', newView);
+  },
+
+  removeCommentView: function(commentView) {
+    this.removeSubview('div.project-comments', commentView);
+    this.render();
   },
 
   sendToEdit: function(event) {
@@ -49,6 +56,24 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
 
   updateModel: function() {
     this.model.fetch();
+  },
+
+  createComment: function(event) {
+    var body = this.$('textarea.new-comment-body').val();
+    this.$('textarea.new-comment-body').val('');
+    var comment = new LaunchAssist.Models.Comment();
+    comment.set({project_id: this.model.get('id'), body: body});
+    comment.save({}, {
+      success: function() {
+        this.comments.add(comment, {silent: true});
+        this.createNewCommentView(comment);
+      }.bind(this)
+    });
+  },
+
+  createNewCommentView: function(comment) {
+    var newView = new LaunchAssist.Views.ProjectCommentItem({model: comment, currentUser: this.currentUser});
+    this.addPrependSubview('div.project-comments', newView);
   }
 
 

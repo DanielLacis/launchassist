@@ -5,7 +5,6 @@
 #  id                      :integer          not null, primary key
 #  title                   :string           not null
 #  description             :text             not null
-#  image_url               :string
 #  end_date                :datetime         not null
 #  goal                    :integer          not null
 #  user_id                 :integer          not null

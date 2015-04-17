@@ -1,1 +1,5 @@
-<h1><%= comment.escape('body') %></h1>
+<p><%= comment.escape('body') %></p>
+<p><%= " -- " + comment.username() %></p>
+<% if (currentUser.get('id') == comment.user_id()) { %>
+  <button type="button" class="btn btn-danger" id="comment-item-delete">Delete Comment</button>
+<% } %>
