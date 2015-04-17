@@ -16,6 +16,7 @@
         <p>Duration remaining: <%= project.escape('time_remaining') %></p>
         <% if (currentUser.get('id') === project.get('user_id')) { %>
           <button type="button" class="btn btn-primary project-edit">Edit Project</button>
+          <button type="button" class="btn btn-primary project-new-photo" data-toggle="modal" data-target="div#new-photo" style="margin-top: 10px">Add Photo</button>
         <% } %>
       </div>
     </div>

@@ -16,8 +16,10 @@ Rails.application.routes.draw do
       resources :tiers, only: [:index]
       resources :pledges, only: [:index]
       resources :comments, only: [:index]
+      resources :photos, only: [:index]
     end
 
+    resources :photos, only: [:create, :update, :destroy]
     resources :tiers, only: [:show]
 
     resources :users, only: [:show]

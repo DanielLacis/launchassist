@@ -33,6 +33,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
 
   projectShow: function(id) {
     this.project = new LaunchAssist.Models.Project({id: id});
+    Backbone.trigger('projectShow', {project_id: id});
     this.project.fetch();
     this.project.tiers().fetch();
     this.project.comments().fetch();
