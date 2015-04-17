@@ -27,6 +27,7 @@ class Project < ActiveRecord::Base
   has_many :tiers
   has_many :pledges, through: :tiers, source: :pledges
   has_many :backers, through: :pledges, source: :user
+  has_many :comments
   has_attached_file :main_photo, styles: {
     large: "x600>",
     medium: "x300>",

@@ -1,22 +1,28 @@
-<div class="project-show-item col-md-9">
-  <div class="project-show-img col-md-4">
-    <img src="<%= project.escape('main_photo_url') %>" style="width: 100%; border-radius: 5px">
+<div class="project-show-item-big-bin col-md-9">
+  <div class="row project-show-item">
+    <div class="project-show-img col-md-4">
+      <img src="<%= project.escape('main_photo_url') %>" style="width: 100%; border-radius: 5px; margin-left: 15px">
+    </div>
+    <div class="project-show-main col-md-8">
+      <div class="project-show-primary col-md-8">
+        <h1><%= project.escape('title') %></h1>
+        <p><%= project.escape('description') %></p>
+      </div>
+      <div class="project-show-stats col-md-4">
+        <p><%= project.escape('numPledges') %> Backers</p>
+        <p>Pledged: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('amtPledged')) %></p>
+        <p>Goal: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %></p>
+        <p><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100)%>% of goal</p>
+        <p>Duration remaining: <%= project.escape('time_remaining') %></p>
+        <% if (currentUser.get('id') === project.get('user_id')) { %>
+          <button type="button" class="btn btn-primary project-edit">Edit Project</button>
+        <% } %>
+      </div>
+    </div>
   </div>
-  <div class="project-show-main col-md-8">
-    <div class="project-show-primary col-md-8">
-      <h1><%= project.escape('title') %></h1>
-      <p><%= project.escape('description') %></p>
-    </div>
-    <div class="project-show-stats col-md-4">
-      <p><%= project.escape('numPledges') %> Backers</p>
-      <p>Pledged: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('amtPledged')) %></p>
-      <p>Goal: $<%= LaunchAssist.Util.prototype.numberWithCommas(project.escape('goal')) %></p>
-      <p><%= Math.floor(project.escape('amtPledged') / project.escape('goal') * 100)%>% of goal</p>
-      <p>Duration remaining: <%= project.escape('time_remaining') %></p>
-      <% if (currentUser.get('id') === project.get('user_id')) { %>
-        <button type="button" class="btn btn-primary project-edit">Edit Project</button>
-      <% } %>
-    </div>
+  <div class="row">
+    <div class="project-extra-images col-md-6"></div>
+    <div class="project-comments col-md-6"></div>
   </div>
 </div>
 

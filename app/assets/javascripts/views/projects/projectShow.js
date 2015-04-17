@@ -6,10 +6,15 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   initialize: function(options) {
+    this.comments = options.comments;
     this.collection.each( function(tier) {
       this.addTierView(tier);
     }.bind(this));
+    this.comments.each( function(comment) {
+      this.addCommentView(comment);
+    }.bind(this));
     this.currentUser = options.currentUser;
+    this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.collection, 'add', this.addTierView);
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.currentUser, 'sync', this.render);
@@ -29,6 +34,12 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   addTierView: function(inputTier) {
     var newView = new LaunchAssist.Views.ProjectTierItem({model: inputTier});
     this.addSubview('div.project-tiers', newView);
+  },
+
+  addCommentView: function(inputComment) {
+    
+    var newView = new LaunchAssist.Views.ProjectCommentItem({model: inputComment});
+    this.addSubview('div.project-comments', newView);
   },
 
   sendToEdit: function(event) {

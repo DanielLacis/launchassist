@@ -1,6 +1,6 @@
 LaunchAssist.Views.CategoriesIndexItem = Backbone.View.extend({
   template: JST['categories/categories_index_item'],
-  className: 'category col-md-3',
+  className: 'category col-xs-3',
 
   events: {
     'click': 'linkToCategory'
