@@ -25,6 +25,7 @@ LaunchAssist.Views.NewPhotoModal = Backbone.View.extend ({
     if (this.uploadedPhoto) {
       photo.set({sub_photo: this.uploadedPhoto, project_id: this.projectId});
       photo.save();
+      Backbone.trigger('addedPhoto', {photo: photo});
     }
   },
 

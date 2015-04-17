@@ -8,13 +8,18 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.comments = options.comments;
+    this.photos = options.photos;
     this.collection.each( function(tier) {
       this.addTierView(tier);
     }.bind(this));
     this.comments.each( function(comment) {
       this.addCommentView(comment);
     }.bind(this));
+    this.photos.each( function(photo) {
+      this.addPhotoView(photo);
+    }.bind(this));
     this.currentUser = options.currentUser;
+    this.listenTo(this.photos, 'add', this.addPhotoView);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.collection, 'add', this.addTierView);
     this.listenTo(this.model, 'sync', this.render);
@@ -24,6 +29,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     this.listenTo(Backbone, 'deletedComment', this.removeCommentView);
     this.listenTo(Backbone, 'newPledge', this.updateModel);
+    this.listenTo(Backbone, 'addedPhoto', this.updatePhotos);
   },
 
   render: function() {
@@ -42,6 +48,12 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
 
     var newView = new LaunchAssist.Views.ProjectCommentItem({model: inputComment, currentUser: this.currentUser});
     this.addSubview('div.project-comments', newView);
+  },
+
+  addPhotoView: function(inputPhoto) {
+    debugger
+    var newView = new LaunchAssist.Views.PhotoViewItem({model: inputPhoto, currentUser: this.currentUser});
+    this.addSubview('div.project-photos', newView);
   },
 
   removeCommentView: function(commentView) {
@@ -74,6 +86,14 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   createNewCommentView: function(comment) {
     var newView = new LaunchAssist.Views.ProjectCommentItem({model: comment, currentUser: this.currentUser});
     this.addPrependSubview('div.project-comments', newView);
+  },
+
+  updatePhotos: function(options) {
+    debugger
+    var photo = options.photo;
+    if (photo.get('project_id') == this.model.get('id')) {
+      this.photos.add(photo);
+    }
   }
 
 

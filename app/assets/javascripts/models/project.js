@@ -19,6 +19,15 @@ LaunchAssist.Models.Project = Backbone.Model.extend({
     return this._comments;
   },
 
+  photos: function() {
+    if (this._photos) {
+      return this._photos;
+    } else {
+      this._photos = new LaunchAssist.Collections.Photos([], {projectId: this.get('id')});
+    }
+    return this._photos;
+  },
+
   toJSON: function() {
     var end = this.get('end_date');
     var goal = this.get('goal');

@@ -37,9 +37,9 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this.project.fetch();
     this.project.tiers().fetch();
     this.project.comments().fetch();
+    this.project.photos().fetch();
     this.currentUser.fetch();
-
-    var newView = new LaunchAssist.Views.ProjectShow({model: this.project, collection: this.project.tiers(), currentUser: this.currentUser, comments: this.project.comments()});
+    var newView = new LaunchAssist.Views.ProjectShow({model: this.project, collection: this.project.tiers(), currentUser: this.currentUser, comments: this.project.comments(), photos: this.project.photos()});
     this._swapView(newView);
   },
 
