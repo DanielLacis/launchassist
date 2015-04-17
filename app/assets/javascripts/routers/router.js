@@ -20,6 +20,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this.collection.fetch();
     var newView = new LaunchAssist.Views.CategoriesIndex({collection: this.collection});
     this._swapView(newView);
+
   },
 
   categoryShow: function(id) { //:category_id
@@ -57,6 +58,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(this._currentView.render().$el);
+    $(window).scrollTop(0);
   },
 
 });

@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # generate random placeholder images
 
-User.create(username: "dan", email: "dan@gmail.com", password: "password", passwordConfirm: "password")
-User.create(username: "guest", email: "guest@gmail.com", password: "123456", passwordConfirm: "123456")
+User.create(username: "Dan", email: "Dan@gmail.com", password: "password", passwordConfirm: "password")
+User.create(username: "Guest", email: "Guest@gmail.com", password: "password", passwordConfirm: "password")
 
 150.times do
   name = Faker::Name.first_name
@@ -169,6 +169,20 @@ Project.all.each do |project|
     tier_user_ids = tier_user_ids.drop(tier_backers.length)
     tier_backers.each do |backer|
       Pledge.create(user_id: backer, tier_id: tier.id)
+    end
+  end
+end
+
+Project.all.each do |project|
+  15.times do
+    num = rand(1..4)
+    case num
+    when 1
+      Comment.create(user_id: 1, project_id: project.id, body: Faker::Hacker.say_something_smart)
+    when 2
+      Comment.create(user_id: 2, project_id: project.id, body: Faker::Hacker.say_something_smart)
+    when 3..4
+      Comment.create(user_id: rand(3..num_users), project_id: project.id, body: Faker::Hacker.say_something_smart)
     end
   end
 end
