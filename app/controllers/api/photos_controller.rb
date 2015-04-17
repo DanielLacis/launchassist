@@ -7,7 +7,7 @@ class Api::PhotosController < ApplicationController
 
     if @project.user_id == current_user.id
       if @photo.save
-        render json: @photo
+        render :json => @photo.as_json.merge({photo_url: @photo.sub_photo.url(:medium)})
       else
         render json: @photo.errors.full_messages, status: :unprocessable_entity
       end

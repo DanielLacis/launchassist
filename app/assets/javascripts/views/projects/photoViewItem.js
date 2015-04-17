@@ -1,5 +1,6 @@
 LaunchAssist.Views.PhotoViewItem = Backbone.View.extend({
   template: JST['projects/project_photo_item'],
+  className: 'project-photo-view-item',
 
   initialize: function(options) {
     this.currentUser = options.currentUser;
