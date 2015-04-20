@@ -30,9 +30,20 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     this.listenTo(Backbone, 'deletedComment', this.removeCommentView);
     this.listenTo(Backbone, 'newPledge', this.updateModel);
     this.listenTo(Backbone, 'addedPhoto', this.updatePhotos);
+    this.listenTo(Backbone, 'destroyedPhoto', this.destroyedPhoto);
+    if (this.currentUser.get('id') == this.model.get('user_id')) {
+      this.isOwner = true;
+    } else {
+      this.isOwner = false;
+    }
   },
 
   render: function() {
+    if (this.currentUser.get('id') == this.model.get('user_id')) {
+      this.isOwner = true;
+    } else {
+      this.isOwner = false;
+    }
     var content = this.template({project: this.model, currentUser: this.currentUser});
     this.$el.html(content);
     this.attachSubviews();
@@ -51,7 +62,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   addPhotoView: function(inputPhoto) {
-    var newView = new LaunchAssist.Views.PhotoViewItem({model: inputPhoto, currentUser: this.currentUser});
+    var newView = new LaunchAssist.Views.PhotoViewItem({model: inputPhoto, currentUser: this.currentUser, isOwner: this.isOwner});
     this.addSubview('div.project-photos', newView);
   },
 
@@ -96,7 +107,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   createNewPhotoView: function(photo) {
-    var newView = new LaunchAssist.Views.PhotoViewItem({model: photo, currentUser: this.currentUser});
+    var newView = new LaunchAssist.Views.PhotoViewItem({model: photo, currentUser: this.currentUser, isOwner: this.isOwner});
     this.addPrependSubview('div.project-photos', newView);
   }
 

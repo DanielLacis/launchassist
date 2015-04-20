@@ -2,7 +2,6 @@ LaunchAssist.Views.NewPhotoModal = Backbone.View.extend ({
   template: JST['projects/new_photo_modal'],
 
   events: {
-
     'change input.photo-upload': 'handleFile',
     'click button#photo-submit': 'savePhoto'
   },
