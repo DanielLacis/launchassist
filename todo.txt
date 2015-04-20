@@ -1,10 +1,4 @@
-add table for arbitrary number of images
-
 projects in categoryShow overflow the containing div on the right side
-
-category index is fucked
-
-change to edit photo, edit photo menu show other photos with option to delete
 
 add and edit backings
 
