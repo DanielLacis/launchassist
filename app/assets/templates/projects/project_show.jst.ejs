@@ -38,6 +38,11 @@
 </div>
 
 <div class="project-tiers-holder col-md-3">
-  <h3 style="background: rgba(255, 255, 255, 0.7); border-radius: 5px; padding: 10px"> Pledge to as many as you want </h3>
+  <div class="tier-header">
+    <h3 > Pledge to as many as you want </h3>
+    <% if (isOwner) { %>
+      <button type="button" class="btn btn-primary" id="edit-tiers">Edit Tiers</button>
+    <% } %>
+  </div>
   <div class="project-tiers"></div>
 </div>

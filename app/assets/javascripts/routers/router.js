@@ -2,6 +2,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'categoriesIndex', // shows the categories
     'categories/:id': 'categoryShow', // shows the projects for a given category
+    'projects/:id/tiers/edit': 'projectTiersEdit',
     'projects/:id/edit': 'projectEdit',
     'projects/:id': 'projectShow'  // shows the actual project
   },
@@ -48,6 +49,14 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
     this.collection.fetch();
     this.project.fetch();
     var newView = new LaunchAssist.Views.ProjectEdit({collection: this.collection, model: this.project});
+    this._swapView(newView);
+  },
+
+  projectTiersEdit: function(id) {
+    this.project = new LaunchAssist.Models.Project({id: id});
+    this.project.fetch();
+    this.project.tiers().fetch();
+    var newView = new LaunchAssist.Views.ProjectTiersEdit({model: this.project, collection: this.project.tiers()});
     this._swapView(newView);
   },
 

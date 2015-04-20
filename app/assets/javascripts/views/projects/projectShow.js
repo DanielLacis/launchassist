@@ -3,7 +3,8 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   className: 'project-show container',
   events: {
     'click button.project-edit': 'sendToEdit',
-    'click button#new-comment-submit': 'createComment'
+    'click button#new-comment-submit': 'createComment',
+    'click button#edit-tiers': 'sendToEditTiers'
   },
 
   initialize: function(options) {
@@ -44,7 +45,7 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
     } else {
       this.isOwner = false;
     }
-    var content = this.template({project: this.model, currentUser: this.currentUser});
+    var content = this.template({project: this.model, currentUser: this.currentUser, isOwner: this.isOwner});
     this.$el.html(content);
     this.attachSubviews();
     return this;
@@ -74,6 +75,11 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   sendToEdit: function(event) {
     event.preventDefault();
     Backbone.history.navigate('projects/' + this.model.get('id') + '/edit', {trigger: true});
+  },
+
+  sendToEditTiers: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate('projects/' + this.model.get('id') + '/tiers/edit');
   },
 
   updateModel: function() {
