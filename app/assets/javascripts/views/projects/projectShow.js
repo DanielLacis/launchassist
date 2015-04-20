@@ -109,8 +109,22 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   createNewPhotoView: function(photo) {
     var newView = new LaunchAssist.Views.PhotoViewItem({model: photo, currentUser: this.currentUser, isOwner: this.isOwner});
     this.addPrependSubview('div.project-photos', newView);
+  },
+
+  destroyedPhoto: function(photo) {
+    var photoSubview = this.findPhotoSubview(photo);
+    this.removeSubview('div.project-photos', photoSubview);
+  },
+
+  findPhotoSubview: function(photo) {
+    var photoSubview;
+    var subs = this.subviews('div.project-photos');
+    _(subs).each(function(sub) {
+      if (sub.model === photo) {
+        photoSubview = sub;
+      }
+    }.bind(this));
+    return photoSubview;
   }
-
-
 
 });

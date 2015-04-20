@@ -21,8 +21,8 @@ LaunchAssist.Views.PhotoShowModal = Backbone.View.extend({
     event.preventDefault();
     this.model.destroy({
       success: function() {
-        Backbone.trigger('destroyedPhoto');
-      }
+        Backbone.trigger('destroyedPhoto', this.model);
+      }.bind(this)
     });
   },
 
