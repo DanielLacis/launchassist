@@ -78,8 +78,9 @@ LaunchAssist.Views.ProjectShow = Backbone.CompositeView.extend({
   },
 
   sendToEditTiers: function(event) {
+
     event.preventDefault();
-    Backbone.history.navigate('projects/' + this.model.get('id') + '/tiers/edit');
+    Backbone.history.navigate('projects/' + this.model.get('id') + '/tiers/edit', {trigger: true});
   },
 
   updateModel: function() {

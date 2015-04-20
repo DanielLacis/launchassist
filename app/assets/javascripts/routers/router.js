@@ -53,6 +53,7 @@ LaunchAssist.Routers.Router = Backbone.Router.extend({
   },
 
   projectTiersEdit: function(id) {
+    
     this.project = new LaunchAssist.Models.Project({id: id});
     this.project.fetch();
     this.project.tiers().fetch();
