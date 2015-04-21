@@ -3,3 +3,8 @@ projects in categoryShow overflow the containing div on the right side
 add and edit backings
 
 protect seed data main photos?
+
+Should only have a single modal, content is determined by options object passed
+to it.  Would have 4 templates instead of 4 modals.
+
+
