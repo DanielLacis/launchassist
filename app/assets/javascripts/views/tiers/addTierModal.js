@@ -19,7 +19,7 @@ LaunchAssist.Views.AddTierModal = Backbone.View.extend({
   },
 
   submitTier: function(event) {
-    this.projectId = parseInt(Backbone.history.getFragment().match(/projects\/(\d+)/)[1]);
+    this.projectId = parseInt(Backbone.history.getFragment().match(/^projects\/(\d+)/)[1]);
     event.preventDefault();
     var tierData = $('form#new-tier-form').serializeJSON();
     tierData.project_id = this.projectId;
