@@ -6,6 +6,7 @@ LaunchAssist.Views.ProjectTiersEdit = Backbone.CompositeView.extend ({
       this.addTierEditView(tier);
     });
     this.listenTo(this.collection, 'add', this.addTierEditView);
+    Backbone.trigger('editTier', {collection: this.collection});
   },
 
   render: function() {

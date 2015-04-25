@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
 
     resources :photos, only: [:create, :update, :destroy]
-    resources :tiers, only: [:show]
+    resources :tiers, only: [:show, :create, :update]
 
     resources :users, only: [:show]
     resources :pledges, only: [:show, :create, :destroy]
