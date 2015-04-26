@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
   validates :title, uniqueness: {scope: :category_id}
   belongs_to :user
   belongs_to :category
-  has_many :tiers
+  has_many :tiers, dependent: :destroy
   has_many :pledges, through: :tiers, source: :pledges
   has_many :backers, through: :pledges, source: :user
   has_many :comments
@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
     medium: "x300>",
     small: "50x50#"
   }
-  
+
   validates_attachment_content_type(
     :main_photo,
     content_type: /\Aimage\/.*\Z/

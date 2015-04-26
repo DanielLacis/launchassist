@@ -6,6 +6,7 @@ LaunchAssist.Views.ProjectTiersEdit = Backbone.CompositeView.extend ({
       this.addTierEditView(tier);
     });
     this.listenTo(this.collection, 'add', this.addTierEditView);
+    this.listenTo(Backbone, 'removedTierSubview', this.removeTierSubview);
     Backbone.trigger('editTier', {collection: this.collection});
   },
 
@@ -16,7 +17,11 @@ LaunchAssist.Views.ProjectTiersEdit = Backbone.CompositeView.extend ({
   },
 
   addTierEditView: function(tier) {
-    var newView = new LaunchAssist.Views.TierEditView({model: tier});
+    var newView = new LaunchAssist.Views.TierEditView({model: tier, collection: this.collection});
     this.addSubview('div#tier-edits', newView);
+  },
+
+  removeTierSubview: function(view) {
+    this.removeSubview('div#tier-edits', view);
   }
 });

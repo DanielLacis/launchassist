@@ -13,10 +13,32 @@ class Api::TiersController < ApplicationController
 
   def create
     @tier = Tier.new(tier_params)
-    if @tier.save
+    @project = Project.find(@tier.project_id)
+    if @project.user_id == current_user.id && @tier.save
       render json: @tier
     else
       render json: @tier.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @tier = Tier.find(params[:id])
+    @project = Project.find(@tier.project_id)
+    if @project.user_id != current_user.id
+      render json: "Only project owner can edit tiers", status: 403
+    elsif @tier.update(tier_params)
+      render json: @tier
+    else
+      render json: @tier.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @tier = Tier.find(params[:id])
+    if @tier.destroy
+      render json: @tier
+    else
+      render json: "something went wrong"
     end
   end
 

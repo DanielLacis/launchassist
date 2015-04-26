@@ -3,6 +3,7 @@
   <p>Amount: $<%= LaunchAssist.Util.prototype.numberWithCommas(tier.escape('amount')) %></p>
   <p>Rewards: <%= tier.escape('rewards') %></p>
   <p>Delivery Date: <%= LaunchAssist.Util.prototype.monthYear(tier.escape('delivery_date')) %></p>
-  <button type="button" class="btn btn-primary" id="edit-tier">Edit Tier</button>
+  <button type="button" class="btn btn-primary" id="edit-tier" data-toggle="modal" data-target="div#edit-tier-modal">Edit Tier</button>
+  <button type="button" class="btn btn-danger" id="remove-tier">Remove Tier</button>
 </div>
 <div class="col-xs-3"></div>
