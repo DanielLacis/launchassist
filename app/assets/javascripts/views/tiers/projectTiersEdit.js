@@ -1,6 +1,10 @@
 LaunchAssist.Views.ProjectTiersEdit = Backbone.CompositeView.extend ({
   template: JST['tiers/project-tiers-edit'],
 
+  events: {
+    'click button#back': 'navigateBack'
+  },
+
   initialize: function(options) {
     this.collection.each(function(tier) {
       this.addTierEditView(tier);
@@ -23,5 +27,9 @@ LaunchAssist.Views.ProjectTiersEdit = Backbone.CompositeView.extend ({
 
   removeTierSubview: function(view) {
     this.removeSubview('div#tier-edits', view);
+  },
+
+  navigateBack: function() {
+    window.history.back();
   }
 });
