@@ -28,6 +28,19 @@ LaunchAssist.Views.AddTierModal = Backbone.View.extend({
     tier.save({}, {
       success: function() {
         this.collection.add(tier);
+      }.bind(this),
+      error: function(model, response, options) {
+        this.resp = response;
+        $('div.add-tier-errors').empty();
+        _(response.responseJSON).each(function(err) {
+          $('div.add-tier-errors').append('<p>' + err + "</p>");
+        });
+        $('div#new-tier').on('hidden.bs.modal', function (e) {
+          if (this.resp) {
+            this.$('div#new-tier').modal('show');
+            this.resp = null;
+          }
+        }.bind(this));
       }.bind(this)
     });
   },

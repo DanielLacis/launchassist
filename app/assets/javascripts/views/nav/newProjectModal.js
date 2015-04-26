@@ -29,6 +29,19 @@ LaunchAssist.Views.newProjectModal = Backbone.View.extend({
     newProject.save({}, {
       success: function() {
         Backbone.history.navigate('#projects/' + newProject.get('id'), {trigger: true});
+      }.bind(this),
+      error: function(model, response, options) {
+        this.resp = response;
+        $('div.new-project-errors').empty();
+        _(response.responseJSON).each(function(err) {
+          $('div.new-project-errors').append('<p>' + err + "</p>");
+        });
+        $('div#new-project').on('hidden.bs.modal', function (e) {
+          if (this.resp) {
+            this.$('div#new-project').modal('show');
+            this.resp = null;
+          }
+        }.bind(this));
       }.bind(this)
     });
   },

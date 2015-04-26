@@ -41,6 +41,19 @@ LaunchAssist.Views.EditTierModal = Backbone.View.extend({
     this.model.save({}, {
       success: function() {
 
+      }.bind(this),
+      error: function(model, response, options) {
+        this.resp = response;
+        $('div.edit-tier-errors').empty();
+        _(response.responseJSON).each(function(err) {
+          $('div.edit-tier-errors').append('<p>' + err + "</p>");
+        });
+        $('div#edit-tier-modal').on('hidden.bs.modal', function (e) {
+          if (this.resp) {
+            this.$('div#edit-tier-modal').modal('show');
+            this.resp = null;
+          }
+        }.bind(this));
       }.bind(this)
     });
   }

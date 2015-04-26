@@ -19,7 +19,7 @@
 
 class Project < ActiveRecord::Base
   # attr_accessor :main_photo_file_name, :main_photo_content_type, :main_photo_file_size, :main_photo_updated_at
-  validates :title, :description, :user_id, :category_id, presence: true
+  validates :title, :description, :user_id, :category_id, :goal, :end_date, presence: true
   validates :title, uniqueness: {scope: :category_id}
   belongs_to :user
   belongs_to :category
