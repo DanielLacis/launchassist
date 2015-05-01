@@ -1,3 +1,5 @@
+click more stuff to open category show and project show
+
 projects in categoryShow overflow the containing div on the right side
 
 add and edit backings
