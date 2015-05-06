@@ -1,7 +1,7 @@
 #LaunchAssist
 LaunchAssist is a web application built with Ruby on Rails, Backbone.js, PostgreSQL, Bootstrap and jQuery, and is inspired by Kickstarter.
 
-View it live at http://launchassist.io
+Try it out live at http://launchassist.io
 
 ###Main Functionality:
 * Browse projects by category.

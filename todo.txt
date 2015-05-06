@@ -9,4 +9,11 @@ protect seed data main photos?
 Should only have a single modal, content is determined by options object passed
 to it.  Would have 4 templates instead of 4 modals.
 
-
+make project show summary across whole page
+globally increase font
+bold for values as they change
+animate values changing
+clean up database
+fix project dates
+negative margin to category image? (eww)
+change font
