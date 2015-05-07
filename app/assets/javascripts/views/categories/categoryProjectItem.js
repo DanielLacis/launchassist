@@ -4,6 +4,7 @@ LaunchAssist.Views.CategoryProjectItem = Backbone.View.extend({
 
   events: {
     'click div.project-index-image': 'sendToProject',
+    'click div.project-info': 'sendToProject',
     'click button.project-edit': 'sendToEdit'
   },
 
