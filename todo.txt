@@ -1,8 +1,7 @@
 projects in categoryShow overflow the containing div on the right side
-
+tweak font sizes in em, change global font size based on screen width
 Maybe:
 make project show summary across whole page
-globally increase font
 bold for values as they change
 animate values changing
 fix project dates
