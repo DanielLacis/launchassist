@@ -12,5 +12,6 @@
 !/log/.keep
 /tmp
 /.idea
+# test
 # Ignore application configuration
 /config/application.yml
